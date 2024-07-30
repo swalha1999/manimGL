@@ -17,7 +17,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from typing import Iterable, Optional
-    from manimlib.typing import ManimColor, Vect3, Vect3Array, VectN, RangeSpecifier
+    from manimlib.types import ManimColor, Vect3, Vect3Array, VectN, RangeSpecifier
 
 
 class NumberLine(Line):

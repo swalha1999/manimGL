@@ -53,7 +53,7 @@ SubVmobjectType = TypeVar('SubVmobjectType', bound='VMobject')
 
 if TYPE_CHECKING:
     from typing import Callable, Tuple, Any
-    from manimlib.typing import ManimColor, Vect3, Vect4, Vect3Array, Vect4Array, Self
+    from manimlib.types import ManimColor, Vect3, Vect4, Vect3Array, Vect4Array, Self
     from moderngl.context import Context
 
 DEFAULT_STROKE_COLOR = GREY_A

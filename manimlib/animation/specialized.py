@@ -10,7 +10,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     import numpy as np
-    from manimlib.typing import ManimColor
+    from manimlib.types import ManimColor
 
 
 class Broadcast(LaggedStart):

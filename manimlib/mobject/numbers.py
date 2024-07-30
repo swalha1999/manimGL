@@ -13,7 +13,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from typing import TypeVar
-    from manimlib.typing import ManimColor, Vect3, Self
+    from manimlib.types import ManimColor, Vect3, Self
 
     T = TypeVar("T", bound=VMobject)
 

@@ -13,7 +13,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from typing import Callable
-    from manimlib.typing import Vect3, Vect3Array
+    from manimlib.types import Vect3, Vect3Array
 
 
 STRAIGHT_PATH_THRESHOLD = 0.01

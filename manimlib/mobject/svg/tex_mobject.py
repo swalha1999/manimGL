@@ -14,7 +14,7 @@ from manimlib.logger import log
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from manimlib.typing import ManimColor, Span, Selector
+    from manimlib.types import ManimColor, Span, Selector
 
 
 SCALE_FACTOR_PER_FONT_POINT = 0.001

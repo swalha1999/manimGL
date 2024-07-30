@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     from typing import Callable
     from manimlib.mobject.mobject import Mobject
     from manimlib.scene.scene import Scene
-    from manimlib.typing import Vect3
+    from manimlib.types import Vect3
 
 
 

@@ -21,7 +21,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from typing import List, Optional, Dict
-    from manimlib.typing import UniformDict
+    from manimlib.types import UniformDict
 
 
 # Mobjects that should be rendered with

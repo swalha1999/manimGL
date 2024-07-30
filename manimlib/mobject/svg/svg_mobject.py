@@ -24,7 +24,7 @@ from manimlib.utils.simple_functions import hash_string
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from typing import Tuple
-    from manimlib.typing import ManimColor, Vect3Array
+    from manimlib.types import ManimColor, Vect3Array
 
 
 

@@ -19,7 +19,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from typing import Iterable
-    from manimlib.typing import ManimColor
+    from manimlib.types import ManimColor
 
 
 EPSILON = 0.0001

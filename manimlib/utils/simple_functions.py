@@ -10,7 +10,7 @@ import numpy as np
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from typing import Callable, TypeVar, Iterable
-    from manimlib.typing import FloatArray
+    from manimlib.types import FloatArray
 
     Scalable = TypeVar("Scalable", float, FloatArray)
 

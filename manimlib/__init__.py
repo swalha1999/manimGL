@@ -5,7 +5,7 @@ __version__ = pkg_resources.get_distribution("manimgl").version
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from manimlib.typing import *
+    from manimlib.types import *
 
 from manimlib.constants import *
 

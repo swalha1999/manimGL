@@ -6,7 +6,7 @@ from manimlib.mobject.geometry import Rectangle
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from manimlib.typing import ManimColor
+    from manimlib.types import ManimColor
 
 
 class ScreenRectangle(Rectangle):

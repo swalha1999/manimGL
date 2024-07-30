@@ -52,7 +52,7 @@ SubmobjectType = TypeVar('SubmobjectType', bound='Mobject')
 if TYPE_CHECKING:
     from typing import Callable, Iterator, Union, Tuple, Optional, Any
     import numpy.typing as npt
-    from manimlib.typing import ManimColor, Vect3, Vect4, Vect3Array, UniformDict, Self
+    from manimlib.types import ManimColor, Vect3, Vect4, Vect3Array, UniformDict, Self
     from moderngl.context import Context
 
     T = TypeVar('T')

@@ -17,7 +17,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from typing import Callable, Sequence, TypeVar, Tuple
-    from manimlib.typing import VectN, FloatArray, VectNArray, Vect3Array
+    from manimlib.types import VectN, FloatArray, VectNArray, Vect3Array
 
     Scalable = TypeVar("Scalable", float, FloatArray)
 

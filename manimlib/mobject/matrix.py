@@ -15,7 +15,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from typing import Sequence, Union, Tuple, Optional
-    from manimlib.typing import ManimColor, Vect3, VectNArray, Self
+    from manimlib.types import ManimColor, Vect3, VectNArray, Self
 
     StringMatrixType = Union[Sequence[Sequence[str]], np.ndarray[int, np.dtype[np.str_]]]
     FloatMatrixType = Union[Sequence[Sequence[float]], VectNArray]

@@ -23,7 +23,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from typing import Callable, Iterable, Sequence, TypeVar, Tuple
-    from manimlib.typing import ManimColor, Vect3, VectN, Vect3Array
+    from manimlib.types import ManimColor, Vect3, VectN, Vect3Array
 
     from manimlib.mobject.coordinate_systems import CoordinateSystem
     from manimlib.mobject.mobject import Mobject

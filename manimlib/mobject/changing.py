@@ -12,7 +12,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from typing import Callable, List, Iterable
-    from manimlib.typing import ManimColor, Vect3, Self
+    from manimlib.types import ManimColor, Vect3, Self
 
 
 class AnimatedBoundary(VGroup):

@@ -16,7 +16,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from typing import Sequence, Optional, Tuple
-    from manimlib.typing import UniformDict
+    from manimlib.types import UniformDict
     from moderngl.vertex_array import VertexArray
     from moderngl.framebuffer import Framebuffer
 

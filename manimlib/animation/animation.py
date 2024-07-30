@@ -151,9 +151,11 @@ class Animation(object):
         self.interpolate(alpha)
 
     def interpolate_mobject(self, alpha: float) -> None:
+        # self.families.reverse()
         for i, mobs in enumerate(self.families):
             sub_alpha = self.get_sub_alpha(alpha, i, len(self.families))
             self.interpolate_submobject(*mobs, sub_alpha)
+        # self.families.reverse()
 
     def interpolate_submobject(
         self,

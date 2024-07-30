@@ -27,7 +27,7 @@ if TYPE_CHECKING:
     from typing import Iterable
 
     from manimlib.mobject.types.vectorized_mobject import VGroup
-    from manimlib.typing import ManimColor, Span, Selector
+    from manimlib.types import ManimColor, Span, Selector
 
 
 TEXT_MOB_SCALE_FACTOR = 0.0076

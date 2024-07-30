@@ -26,7 +26,7 @@ if TYPE_CHECKING:
 
     from manimlib.animation.animation import Animation
     from manimlib.mobject.mobject import Mobject
-    from manimlib.typing import Vect3
+    from manimlib.types import Vect3
 
 
 class Brace(Tex):

@@ -13,7 +13,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from typing import Iterable, List, Dict
-    from manimlib.typing import ManimColor
+    from manimlib.types import ManimColor
 
 
 SCALE_FACTOR_PER_FONT_POINT = 0.001

@@ -145,6 +145,7 @@ class TextExample(Scene):
             t2w={"weight": BOLD},
             t2c={"slant": ORANGE, "weight": RED}
         )
+        slant.set_width(FRAME_WIDTH - 1)
         VGroup(fonts, slant).arrange(DOWN, buff=0.8)
         self.play(FadeOut(text), FadeOut(difference, shift=DOWN))
         self.play(Write(fonts))
@@ -646,7 +647,7 @@ class SurfaceExample(ThreeDScene):
         self.wait()
 
 
-class InteractiveDevelopment(Scene):
+class InteractiveDevelopment(InteractiveScene):
     def construct(self):
         circle = Circle()
         circle.set_fill(BLUE, opacity=0.5)
@@ -660,7 +661,7 @@ class InteractiveDevelopment(Scene):
         # lines as if they were part of this construct method.
         # In particular, 'square', 'circle' and 'self' will all be
         # part of the local namespace in that terminal.
-        self.embed()
+        # self.embed()
 
         # Try copying and pasting some of the lines below into
         # the interactive shell
@@ -689,7 +690,7 @@ class InteractiveDevelopment(Scene):
 
         # In principle you can customize a scene to be responsive to
         # mouse and keyboard interactions
-        always(circle.move_to, self.mouse_point)
+        # always(circle.move_to, self.mouse_point)
 
 
 class ControlsExample(Scene):
@@ -730,6 +731,119 @@ class ControlsExample(Scene):
         self.textbox.set_value("Manim")
         # self.wait(60)
         # self.embed()
+
+
+
+
+# Example usage of the custom ArabicTex class
+class ArabicTextScene(InteractiveScene):
+    def construct(self):
+        example_text = Text("مرحبا في لمعة", font="Adobe Arabic")
+        self.play(Write(example_text))
+        # self.wait(2)
+        axes = Axes((-3, 10), (-1, 8), height=6)
+        axes.add_coordinate_labels()
+        
+        # lag_ratio=0.01, 
+        self.play(ReplacementTransform(example_text, axes, run_time=0.1))
+
+        # Axes.get_graph will return the graph of a function
+        sin_graph = axes.get_graph(
+            lambda x: 2 * math.sin(x),
+            color=BLUE,
+        )
+        # By default, it draws it so as to somewhat smoothly interpolate
+        # between sampled points (x, f(x)).  If the graph is meant to have
+        # a corner, though, you can set use_smoothing to False
+        relu_graph = axes.get_graph(
+            lambda x: max(x, 0),
+            use_smoothing=False,
+            color=YELLOW,
+        )
+        # For discontinuous functions, you can specify the point of
+        # discontinuity so that it does not try to draw over the gap.
+        step_graph = axes.get_graph(
+            lambda x: 2.0 if x > 3 else 1.0,
+            discontinuities=[3],
+            color=GREEN,
+        )
+
+        # Axes.get_graph_label takes in either a string or a mobject.
+        # If it's a string, it treats it as a LaTeX expression.  By default
+        # it places the label next to the graph near the right side, and
+        # has it match the color of the graph
+        sin_label = axes.get_graph_label(sin_graph, "\\sin(x)")
+        relu_label = axes.get_graph_label(relu_graph, Text("ReLU"))
+        step_label = axes.get_graph_label(step_graph, Text("Step"), x=4)
+
+        self.play(
+            ShowCreation(sin_graph),
+            FadeIn(sin_label, RIGHT),
+        )
+        self.wait(2)
+        self.play(
+            ReplacementTransform(sin_graph, relu_graph),
+            FadeTransform(sin_label, relu_label),
+        )
+        self.wait()
+        self.play(
+            ReplacementTransform(relu_graph, step_graph),
+            FadeTransform(relu_label, step_label),
+        )
+        self.wait()
+
+        parabola = axes.get_graph(lambda x: 0.25 * x**2)
+        parabola.set_stroke(BLUE)
+        self.play(
+            FadeOut(step_graph),
+            FadeOut(step_label),
+            ShowCreation(parabola)
+        )
+        self.wait()
+
+        # You can use axes.input_to_graph_point, abbreviated
+        # to axes.i2gp, to find a particular point on a graph
+        dot = Dot(color=RED)
+        dot.move_to(axes.i2gp(2, parabola))
+        self.play(FadeIn(dot, scale=0.5))
+
+        # A value tracker lets us animate a parameter, usually
+        # with the intent of having other mobjects update based
+        # on the parameter
+        x_tracker = ValueTracker(2)
+        f_always(
+            dot.move_to,
+            lambda: axes.i2gp(x_tracker.get_value(), parabola)
+        )
+
+        self.play(x_tracker.animate.set_value(4), run_time=3)
+        self.play(x_tracker.animate.set_value(-2), run_time=3)
+        self.wait()
+
+        self.clear()
+
+        text = Text("Here is a English lesson", font="Consolas")
+        difference = Text(
+            """
+A B C D E F G H I J K L M\n
+N O P Q R S T U V W X Y Z
+            """,
+            font="Arial", font_size=24,
+            # t2c is a dict that you can choose color for different text
+            t2c={
+            "B": BLUE, "D": BLUE, "F": BLUE, "H": BLUE,"J": BLUE, "L": BLUE, "N": BLUE, "P": BLUE, "R": BLUE,
+            "T": BLUE,"V": BLUE,"X": BLUE, "Z": BLUE,
+                }
+        )
+        VGroup(text, difference).arrange(DOWN, buff=1)
+        self.play(Write(text))
+        self.play(FadeIn(difference, UP))
+        self.wait()
+        self.clear()
+        cube = Cube(color=RED_E)
+        self.play(ShowCreation(cube))
+        self.embed()
+
 
 
 # See https://github.com/3b1b/videos for many, many more

@@ -18,7 +18,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from typing import Optional
-    from manimlib.typing import ManimColor, Vect3
+    from manimlib.types import ManimColor, Vect3
     from manimlib.window import Window
 
 

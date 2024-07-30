@@ -16,7 +16,7 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from typing import Sequence
     from manimlib.mobject.mobject import Mobject
-    from manimlib.typing import ManimColor, Self
+    from manimlib.types import ManimColor, Self
 
 
 class SurroundingRectangle(Rectangle):

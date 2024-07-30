@@ -11,7 +11,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from typing import Callable
-    from manimlib.typing import ManimColor, Vect3, Vect3Array, Vect4Array, Self
+    from manimlib.types import ManimColor, Vect3, Vect3Array, Vect4Array, Self
 
 
 class PMobject(Mobject):

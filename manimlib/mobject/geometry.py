@@ -35,7 +35,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from typing import Iterable, Optional
-    from manimlib.typing import ManimColor, Vect3, Vect3Array, Self
+    from manimlib.types import ManimColor, Vect3, Vect3Array, Self
 
 
 DEFAULT_DOT_RADIUS = 0.08

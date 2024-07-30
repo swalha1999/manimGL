@@ -13,6 +13,7 @@ from manimlib.constants import FRAME_WIDTH, FRAME_HEIGHT, SMALL_BUFF
 from manimlib.constants import PI
 from manimlib.constants import DEGREES
 from manimlib.constants import MANIM_COLORS, WHITE, GREY_A, GREY_C
+from manimlib.logger import log
 from manimlib.mobject.geometry import Line
 from manimlib.mobject.geometry import Rectangle
 from manimlib.mobject.geometry import Square
@@ -35,7 +36,7 @@ from manimlib.utils.tex_file_writing import LatexError
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from manimlib.typing import Vect3
+    from manimlib.types import Vect3
 
 
 SELECT_KEY = 's'
@@ -324,6 +325,9 @@ class InteractiveScene(Scene):
                 self.add_to_selection(mob)
 
     def clear_selection(self):
+        log.info(
+            "\n Cleard Selection"
+        )
         for mob in self.selection:
             mob.set_animating_status(False)
             mob.refresh_bounding_box()
@@ -389,6 +393,9 @@ class InteractiveScene(Scene):
         self.clear_selection()
 
     def enable_selection(self):
+        log.info(
+            "\n Selections Enabled"
+        )
         self.is_selecting = True
         self.add(self.selection_rectangle)
         self.selection_rectangle.fixed_corner = self.frame.to_fixed_frame_point(
@@ -469,20 +476,23 @@ class InteractiveScene(Scene):
     def on_key_press(self, symbol: int, modifiers: int) -> None:
         super().on_key_press(symbol, modifiers)
         char = chr(symbol)
-        if char == SELECT_KEY and modifiers == 0:
+        log.info(
+            "\n the symbol is " + str(symbol) + " and the modifiers is " + str(modifiers) + " converted to char is " + char
+        )
+        if char == SELECT_KEY and (modifiers == 0 or modifiers == 18) :
             self.enable_selection()
         if char == UNSELECT_KEY:
             self.clear_selection()
-        elif char in GRAB_KEYS and modifiers == 0:
+        elif char in GRAB_KEYS and (modifiers == 0 or modifiers == 18):
             self.prepare_grab()
         elif char == RESIZE_KEY and modifiers in [0, SHIFT_MODIFIER]:
             self.prepare_resizing(about_corner=(modifiers == SHIFT_MODIFIER))
         elif symbol == SHIFT_SYMBOL:
             if self.window.is_key_pressed(ord("t")):
                 self.prepare_resizing(about_corner=True)
-        elif char == COLOR_KEY and modifiers == 0:
+        elif char == COLOR_KEY and (modifiers == 0 or modifiers == 18):
             self.toggle_color_palette()
-        elif char == INFORMATION_KEY and modifiers == 0:
+        elif char == INFORMATION_KEY and (modifiers == 0 or modifiers == 18):
             self.display_information()
         elif char == "c" and modifiers == COMMAND_MODIFIER:
             self.copy_selection()

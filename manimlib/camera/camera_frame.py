@@ -15,7 +15,7 @@ from manimlib.utils.space_ops import normalize
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from manimlib.typing import Vect3
+    from manimlib.types import Vect3
 
 
 class CameraFrame(Mobject):

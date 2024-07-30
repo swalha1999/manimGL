@@ -15,7 +15,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from typing import Iterable, Sequence
-    from manimlib.typing import ManimColor, Vect3, Vect4, Vect3Array
+    from manimlib.types import ManimColor, Vect3, Vect4, Vect3Array
 
 
 def color_to_rgb(color: ManimColor) -> Vect3:
